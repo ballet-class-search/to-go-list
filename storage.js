@@ -11,7 +11,7 @@ const sampleSpots = [
     photos: [],
     imageUrl: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1400&q=85",
     description: "海が見えるテラス席が素敵なカフェ。夕暮れの時間に行きたい。",
-    area: "東京",
+    areas: ["東京"],
     genre: "カフェ",
     budget: "3,000〜5,000円",
     status: "気になる",
@@ -30,7 +30,7 @@ const sampleSpots = [
     photos: [],
     imageUrl: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85",
     description: "記念日に泊まりたい憧れのホテル。お部屋からの夜景が最高らしい。",
-    area: "千葉",
+    areas: ["千葉"],
     genre: "ホテル",
     budget: "5,000円以上",
     status: "気になる",
@@ -74,8 +74,11 @@ function transactionDone(transaction) {
 function migrateSpot(spot) {
   const priorityMap = { 高: 5, 中: 3, 低: 1 };
   const statusMap = { 今度行く: "気になる", また行きたい: "行った" };
+  const areas = [...new Set((Array.isArray(spot.areas) ? spot.areas : [spot.area]).map((area) => String(area || "").trim()).filter(Boolean))];
   return {
     ...spot,
+    areas,
+    area: undefined,
     photos: Array.isArray(spot.photos) ? spot.photos : [],
     links: Array.isArray(spot.links)
       ? spot.links
