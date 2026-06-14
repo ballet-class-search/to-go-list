@@ -58,7 +58,7 @@
           <label class="field">スポット名<input name="name" required placeholder="例）サンセットテラス レア"></label>
           <div class="form-row">
             <label class="field">カテゴリ<select name="category"></select></label>
-            <label class="field">エリア<input name="area" placeholder="例）東京都渋谷区"></label>
+            <div class="field area-field"><span>エリア</span><div class="area-input-row"><input id="areaInput" placeholder="例）東京都渋谷区"><button type="button" id="addAreaButton">＋</button></div><div class="area-chips" id="areaEditor"></div></div>
           </div>
           <div class="form-row">
             <label class="field">ジャンル<select name="genre"></select></label>
@@ -81,26 +81,7 @@
   </dialog>
 
   <div class="toast" id="toast"></div>
-
-  <template id="spotCardTemplate">
-    <article class="spot-card">
-      <div class="gallery">
-        <img class="gallery-image" alt="">
-        <div class="gallery-placeholder">♕<small>PHOTO</small></div>
-        <button class="gallery-arrow gallery-prev" type="button">‹</button><button class="gallery-arrow gallery-next" type="button">›</button>
-        <div class="gallery-count"></div><div class="gallery-dots"></div>
-      </div>
-      <div class="card-content">
-        <div class="card-title"><div><div class="chips"></div><h3></h3></div><span class="bookmark">♦</span></div>
-        <div class="budget-priority"><span class="budget-text"></span><span class="priority-stars"></span></div>
-        <div class="card-status"></div>
-        <p class="description"></p>
-        <div class="links"></div>
-        <div class="card-meta"></div>
-        <div class="card-actions"><button class="edit-button" type="button">✎ 編集</button><button class="delete-button" type="button">▱ 削除</button></div>
-      </div>
-    </article>
-  </template>
+  <template id="spotCardTemplate"><article class="spot-card"><div class="gallery"><img class="gallery-image" alt=""><div class="gallery-placeholder">♕<small>PHOTO</small></div><button class="gallery-arrow gallery-prev" type="button">‹</button><button class="gallery-arrow gallery-next" type="button">›</button><div class="gallery-count"></div><div class="gallery-dots"></div></div><div class="card-content"><div class="card-title"><div><div class="chips"></div><h3></h3></div><span class="bookmark">♦</span></div><div class="budget-priority"><span class="budget-text"></span><span class="priority-stars"></span></div><div class="card-status"></div><p class="description"></p><div class="links"></div><div class="card-meta"></div><div class="card-actions"><button class="edit-button" type="button">✎ 編集</button><button class="delete-button" type="button">▱ 削除</button></div></div></article></template>
   <script type="module" src="./app.js"></script>
 </body>
 </html>
